@@ -46,10 +46,7 @@ class _MovieListPageState extends State<MovieListPage> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.deepPurple.shade50,
-                      Colors.purple.shade50,
-                    ],
+                    colors: [Colors.deepPurple.shade50, Colors.purple.shade50],
                   ),
                 ),
                 child: Row(
@@ -125,7 +122,9 @@ class _MovieListPageState extends State<MovieListPage> {
                                 const SizedBox(height: 12),
                                 Container(
                                   width: 120,
-                                  padding: const EdgeInsets.symmetric(vertical: 8),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8,
+                                  ),
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
@@ -199,10 +198,11 @@ class _MovieListPageState extends State<MovieListPage> {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => PurchaseFormPage(
-                                                movie: movie,
-                                                schedule: schedule,
-                                              ),
+                                              builder: (context) =>
+                                                  PurchaseFormPage(
+                                                    movie: movie,
+                                                    schedule: schedule,
+                                                  ),
                                             ),
                                           );
                                         },
@@ -219,10 +219,13 @@ class _MovieListPageState extends State<MovieListPage> {
                                                 Colors.purple.shade600,
                                               ],
                                             ),
-                                            borderRadius: BorderRadius.circular(12),
+                                            borderRadius: BorderRadius.circular(
+                                              12,
+                                            ),
                                             boxShadow: [
                                               BoxShadow(
-                                                color: Colors.deepPurple.withOpacity(0.3),
+                                                color: Colors.deepPurple
+                                                    .withOpacity(0.3),
                                                 blurRadius: 8,
                                                 offset: const Offset(0, 4),
                                               ),
