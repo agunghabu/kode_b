@@ -131,204 +131,482 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        centerTitle: true,
-        title: const Text('Form Pembelian Tiket'),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: _formKey,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.deepPurple.shade50,
+              Colors.purple.shade50,
+              Colors.grey.shade50,
+            ],
+          ),
+        ),
+        child: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Card(
-                elevation: 0,
-                color: Colors.transparent,
-                margin: const EdgeInsets.only(bottom: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(width: 1, color: Colors.grey.shade300),
+              // Custom Header
+              Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Colors.deepPurple.shade50,
+                      Colors.purple.shade50,
+                    ],
+                  ),
                 ),
                 child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            child: Image.asset(
-                              'lib/assets/images/${widget.movie.id}.jpg',
-                              fit: BoxFit.cover,
-                              height: 110,
-                            ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
                           ),
                         ],
                       ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 10, 10, 12),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.movie.title,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Genre: ${widget.movie.genre}',
-                              style: TextStyle(color: Colors.grey.shade700),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Harga: ${_currencyFormat.format(widget.movie.price)}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Jadwal: ${widget.schedule.time} - ${widget.schedule.date}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Colors.deepPurple.shade400,
                         ),
+                        onPressed: () => Navigator.pop(context),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                enabled: false,
-                controller: _buyerNameController,
-                decoration: const InputDecoration(
-                  labelText: 'Nama Pembeli',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.person),
-                ),
-              ),
-              const SizedBox(height: 16),
-              InputDecorator(
-                decoration: const InputDecoration(
-                  enabled: false,
-                  labelText: 'Tanggal Pembelian',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.calendar_today),
-                ),
-                child: Text(
-                  DateFormat('yyyy-MM-dd').format(DateTime.now()),
-                  style: TextStyle(color: Colors.grey.shade500),
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                onChanged: (value) => _validateQuantity(value),
-                validator: _validateQuantity,
-                controller: _quantityController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'Jumlah Tiket',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.confirmation_number),
-                ),
-              ),
-              const SizedBox(height: 16),
-              DropdownMenu(
-                width: double.infinity,
-                initialSelection: _paymentMethod,
-                dropdownMenuEntries: [
-                  const DropdownMenuEntry(
-                    leadingIcon: Icon(Icons.money),
-                    value: 'Cash',
-                    label: 'Cash',
-                  ),
-                  const DropdownMenuEntry(
-                    leadingIcon: Icon(Icons.credit_card),
-                    value: 'Kartu Debit/Kredit',
-                    label: 'Kartu Debit/Kredit',
-                  ),
-                ],
-                onSelected: (String? value) {
-                  setState(() {
-                    _paymentMethod = value!;
-                    if (_paymentMethod == 'Cash') {
-                      _cardNumberController.clear();
-                    }
-                  });
-                },
-                label: const Text('Metode Pembayaran'),
-                leadingIcon: const Icon(Icons.payment),
-              ),
-              if (_paymentMethod == 'Kartu Debit/Kredit') ...[
-                const SizedBox(height: 16),
-                TextFormField(
-                  controller: _cardNumberController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nomor Kartu Debit/Kredit',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.credit_card),
-                    helperText: '16 digit angka',
-                  ),
-                  keyboardType: TextInputType.number,
-                  maxLength: 16,
-                  validator: _validateCardNumber,
-                ),
-              ],
-              const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.green.shade50,
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.green),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Total Pembayaran:',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    const SizedBox(width: 16),
                     Text(
-                      _currencyFormat.format(_totalPrice),
-                      style: const TextStyle(
-                        fontSize: 20,
+                      'Pembelian Tiket',
+                      style: TextStyle(
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Colors.deepPurple.shade900,
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
-              FilledButton(
-                onPressed: _isLoading ? null : _submitPurchase,
-                style: FilledButton.styleFrom(
-                  padding: const EdgeInsets.all(16),
+              // Form Content
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(24),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // Movie Info Card
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(24),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.1),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    'lib/assets/images/${widget.movie.id}.jpg',
+                                    fit: BoxFit.cover,
+                                    width: 100,
+                                    height: 140,
+                                  ),
+                                ),
+                                const SizedBox(width: 16),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        widget.movie.title,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.deepPurple.shade900,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.category_rounded,
+                                            size: 16,
+                                            color: Colors.deepPurple.shade300,
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            widget.movie.genre,
+                                            style: TextStyle(
+                                              color: Colors.grey.shade600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                          vertical: 6,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Colors.green.shade400,
+                                              Colors.green.shade600,
+                                            ],
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: Text(
+                                          _currencyFormat
+                                              .format(widget.movie.price),
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.access_time,
+                                            size: 16,
+                                            color: Colors.deepPurple.shade300,
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Expanded(
+                                            child: Text(
+                                              '${widget.schedule.time} - ${widget.schedule.date}',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.grey.shade700,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        // Buyer Name Field
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.1),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            enabled: false,
+                            controller: _buyerNameController,
+                            decoration: InputDecoration(
+                              labelText: 'Nama Pembeli',
+                              labelStyle: TextStyle(
+                                color: Colors.deepPurple.shade400,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              prefixIcon: Icon(
+                                Icons.person,
+                                color: Colors.deepPurple.shade400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // Purchase Date Field
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.1),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: InputDecorator(
+                            decoration: InputDecoration(
+                              enabled: false,
+                              labelText: 'Tanggal Pembelian',
+                              labelStyle: TextStyle(
+                                color: Colors.deepPurple.shade400,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              prefixIcon: Icon(
+                                Icons.calendar_today,
+                                color: Colors.deepPurple.shade400,
+                              ),
+                            ),
+                            child: Text(
+                              DateFormat('yyyy-MM-dd').format(DateTime.now()),
+                              style: TextStyle(color: Colors.grey.shade600),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // Quantity Field
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.1),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            onChanged: (value) => _validateQuantity(value),
+                            validator: _validateQuantity,
+                            controller: _quantityController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              labelText: 'Jumlah Tiket',
+                              labelStyle: TextStyle(
+                                color: Colors.deepPurple.shade400,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              prefixIcon: Icon(
+                                Icons.confirmation_number,
+                                color: Colors.deepPurple.shade400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // Payment Method
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.1),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: DropdownMenu(
+                            width: MediaQuery.of(context).size.width - 48,
+                            initialSelection: _paymentMethod,
+                            dropdownMenuEntries: [
+                              DropdownMenuEntry(
+                                leadingIcon: Icon(
+                                  Icons.money,
+                                  color: Colors.deepPurple.shade400,
+                                ),
+                                value: 'Cash',
+                                label: 'Cash',
+                              ),
+                              DropdownMenuEntry(
+                                leadingIcon: Icon(
+                                  Icons.credit_card,
+                                  color: Colors.deepPurple.shade400,
+                                ),
+                                value: 'Kartu Debit/Kredit',
+                                label: 'Kartu Debit/Kredit',
+                              ),
+                            ],
+                            onSelected: (String? value) {
+                              setState(() {
+                                _paymentMethod = value!;
+                                if (_paymentMethod == 'Cash') {
+                                  _cardNumberController.clear();
+                                }
+                              });
+                            },
+                            label: Text(
+                              'Metode Pembayaran',
+                              style: TextStyle(
+                                color: Colors.deepPurple.shade400,
+                              ),
+                            ),
+                            leadingIcon: Icon(
+                              Icons.payment,
+                              color: Colors.deepPurple.shade400,
+                            ),
+                            inputDecorationTheme: InputDecorationTheme(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                          ),
+                        ),
+                        if (_paymentMethod == 'Kartu Debit/Kredit') ...[
+                          const SizedBox(height: 16),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.deepPurple.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 5),
+                                ),
+                              ],
+                            ),
+                            child: TextFormField(
+                              controller: _cardNumberController,
+                              decoration: InputDecoration(
+                                labelText: 'Nomor Kartu Debit/Kredit',
+                                labelStyle: TextStyle(
+                                  color: Colors.deepPurple.shade400,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: Colors.white,
+                                prefixIcon: Icon(
+                                  Icons.credit_card,
+                                  color: Colors.deepPurple.shade400,
+                                ),
+                                helperText: '16 digit angka',
+                              ),
+                              keyboardType: TextInputType.number,
+                              maxLength: 16,
+                              validator: _validateCardNumber,
+                            ),
+                          ),
+                        ],
+                        const SizedBox(height: 24),
+                        // Total Price
+                        Container(
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.green.shade400,
+                                Colors.green.shade600,
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.green.withOpacity(0.3),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Total Pembayaran:',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                _currencyFormat.format(_totalPrice),
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        // Submit Button
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withOpacity(0.3),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: FilledButton(
+                            onPressed: _isLoading ? null : _submitPurchase,
+                            style: FilledButton.styleFrom(
+                              padding: const EdgeInsets.all(16),
+                              backgroundColor: Colors.deepPurple.shade400,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                            ),
+                            child: _isLoading
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white)
+                                : const Text(
+                                    'Konfirmasi Pembelian',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                child: _isLoading
-                    ? const CircularProgressIndicator(color: Colors.white)
-                    : const Text(
-                        'Konfirmasi Pembelian',
-                        style: TextStyle(fontSize: 16),
-                      ),
               ),
             ],
           ),
