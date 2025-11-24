@@ -101,14 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(24),
+                      width: 140,
+                      height: 140,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.deepPurple.shade400,
-                            Colors.purple.shade600,
-                          ],
-                        ),
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
@@ -118,10 +113,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      child: const Icon(
-                        Icons.movie,
-                        size: 80,
-                        color: Colors.white,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'lib/assets/images/me.jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 32),
