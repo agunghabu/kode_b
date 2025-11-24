@@ -432,6 +432,15 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                         ),
                         const SizedBox(height: 16),
                         // Payment Method
+                        Text(
+                          'Metode Pembayaran',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.deepPurple.shade900,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -473,12 +482,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                                 }
                               });
                             },
-                            label: Text(
-                              'Metode Pembayaran',
-                              style: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
-                            ),
                             leadingIcon: Icon(
                               Icons.payment,
                               color: Colors.deepPurple.shade400,
@@ -490,6 +493,10 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                               ),
                               filled: true,
                               fillColor: Colors.white,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
                             ),
                           ),
                         ),
