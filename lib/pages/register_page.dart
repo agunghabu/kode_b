@@ -231,10 +231,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             validator: _validateFullName,
                             controller: _fullNameController,
                             decoration: InputDecoration(
-                              labelText: 'Nama Lengkap',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Nama Lengkap',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -244,6 +242,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.person,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -266,10 +268,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
-                              labelText: 'Email',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Email',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -279,6 +279,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.email,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -300,10 +304,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             validator: _validateUsername,
                             controller: _usernameController,
                             decoration: InputDecoration(
-                              labelText: 'Username',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Username',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -313,6 +315,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.account_circle,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -335,10 +341,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             validator: _validatePassword,
                             controller: _passwordController,
                             decoration: InputDecoration(
-                              labelText: 'Password',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Password',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -348,6 +352,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.lock,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -370,10 +378,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             controller: _phoneController,
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
-                              labelText: 'Nomor Telepon',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Nomor Telepon',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -383,6 +389,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.phone,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -405,10 +415,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             validator: _validateAddress,
                             controller: _addressController,
                             decoration: InputDecoration(
-                              labelText: 'Alamat',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Alamat',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -418,6 +426,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.home,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),

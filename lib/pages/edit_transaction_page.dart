@@ -308,10 +308,8 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                             controller: _quantityController,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
-                              labelText: 'Jumlah Tiket',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Jumlah Tiket',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -321,6 +319,10 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                               prefixIcon: Icon(
                                 Icons.confirmation_number,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -342,10 +344,8 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           child: DropdownButtonFormField<String>(
                             value: _paymentMethod,
                             decoration: InputDecoration(
-                              labelText: 'Metode Pembayaran',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Metode Pembayaran',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -355,6 +355,10 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                               prefixIcon: Icon(
                                 Icons.payment,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                             items: const [
@@ -394,9 +398,9 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                             child: TextFormField(
                               controller: _cardNumberController,
                               decoration: InputDecoration(
-                                labelText: 'Nomor Kartu Debit/Kredit',
-                                labelStyle: TextStyle(
-                                  color: Colors.deepPurple.shade400,
+                                hintText: 'Nomor Kartu Debit/Kredit',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey.shade400,
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16),
@@ -409,6 +413,10 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                                   color: Colors.deepPurple.shade400,
                                 ),
                                 helperText: '16 digit angka',
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 16,
+                                ),
                               ),
                               keyboardType: TextInputType.number,
                               maxLength: 16,

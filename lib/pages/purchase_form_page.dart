@@ -332,10 +332,8 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                             enabled: false,
                             controller: _buyerNameController,
                             decoration: InputDecoration(
-                              labelText: 'Nama Pembeli',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Nama Pembeli',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -345,6 +343,10 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                               prefixIcon: Icon(
                                 Icons.person,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -366,10 +368,8 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           child: InputDecorator(
                             decoration: InputDecoration(
                               enabled: false,
-                              labelText: 'Tanggal Pembelian',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Tanggal Pembelian',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -379,6 +379,10 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                               prefixIcon: Icon(
                                 Icons.calendar_today,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                             child: Text(
@@ -407,10 +411,8 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                             controller: _quantityController,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
-                              labelText: 'Jumlah Tiket',
-                              labelStyle: TextStyle(
-                                color: Colors.deepPurple.shade400,
-                              ),
+                              hintText: 'Jumlah Tiket',
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -420,6 +422,10 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                               prefixIcon: Icon(
                                 Icons.confirmation_number,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
                               ),
                             ),
                           ),
@@ -504,9 +510,9 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                             child: TextFormField(
                               controller: _cardNumberController,
                               decoration: InputDecoration(
-                                labelText: 'Nomor Kartu Debit/Kredit',
-                                labelStyle: TextStyle(
-                                  color: Colors.deepPurple.shade400,
+                                hintText: 'Nomor Kartu Debit/Kredit',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey.shade400,
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16),
@@ -519,6 +525,10 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                                   color: Colors.deepPurple.shade400,
                                 ),
                                 helperText: '16 digit angka',
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 16,
+                                ),
                               ),
                               keyboardType: TextInputType.number,
                               maxLength: 16,
