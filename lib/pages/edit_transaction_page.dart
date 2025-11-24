@@ -281,15 +281,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        Text(
-                          'Edit Detail Pembelian',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.deepPurple.shade900,
-                          ),
-                        ),
-                        const SizedBox(height: 16),
                         // Quantity Field
                         Container(
                           decoration: BoxDecoration(
@@ -329,6 +320,15 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                         ),
                         const SizedBox(height: 16),
                         // Payment Method
+                        Text(
+                          'Metode Pembayaran',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.deepPurple.shade900,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -341,37 +341,28 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                               ),
                             ],
                           ),
-                          child: DropdownButtonFormField<String>(
-                            value: _paymentMethod,
-                            decoration: InputDecoration(
-                              hintText: 'Metode Pembayaran',
-                              hintStyle: TextStyle(color: Colors.grey.shade400),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(16),
-                                borderSide: BorderSide.none,
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              prefixIcon: Icon(
-                                Icons.payment,
-                                color: Colors.deepPurple.shade400,
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 16,
-                              ),
-                            ),
-                            items: const [
-                              DropdownMenuItem(
+                          child: DropdownMenu<String>(
+                            width: MediaQuery.of(context).size.width - 48,
+                            initialSelection: _paymentMethod,
+                            dropdownMenuEntries: [
+                              DropdownMenuEntry(
+                                leadingIcon: Icon(
+                                  Icons.money,
+                                  color: Colors.deepPurple.shade400,
+                                ),
                                 value: 'Cash',
-                                child: Text('Cash'),
+                                label: 'Cash',
                               ),
-                              DropdownMenuItem(
+                              DropdownMenuEntry(
+                                leadingIcon: Icon(
+                                  Icons.credit_card,
+                                  color: Colors.deepPurple.shade400,
+                                ),
                                 value: 'Kartu Debit/Kredit',
-                                child: Text('Kartu Debit/Kredit'),
+                                label: 'Kartu Debit/Kredit',
                               ),
                             ],
-                            onChanged: (value) {
+                            onSelected: (String? value) {
                               setState(() {
                                 _paymentMethod = value!;
                                 if (_paymentMethod == 'Cash') {
@@ -379,6 +370,22 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                                 }
                               });
                             },
+                            leadingIcon: Icon(
+                              Icons.payment,
+                              color: Colors.deepPurple.shade400,
+                            ),
+                            inputDecorationTheme: InputDecorationTheme(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                            ),
                           ),
                         ),
                         if (_paymentMethod == 'Kartu Debit/Kredit') ...[
