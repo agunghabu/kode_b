@@ -100,7 +100,6 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Custom Header
                     Container(
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
@@ -147,7 +146,6 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                         ],
                       ),
                     ),
-                    // Movie Image
                     Padding(
                       padding: const EdgeInsets.all(24),
                       child: Stack(
@@ -240,7 +238,6 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                         ],
                       ),
                     ),
-                    // Details Container
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Container(
@@ -429,7 +426,6 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                   ],
                 ),
               ),
-              // Floating Action Button
               Positioned(
                 bottom: 24,
                 right: 24,

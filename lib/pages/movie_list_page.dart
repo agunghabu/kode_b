@@ -39,7 +39,6 @@ class _MovieListPageState extends State<MovieListPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // Custom Header
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -83,7 +82,6 @@ class _MovieListPageState extends State<MovieListPage> {
                   ],
                 ),
               ),
-              // Movie List
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.all(24),

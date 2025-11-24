@@ -148,7 +148,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // Custom Header
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -192,7 +191,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                   ],
                 ),
               ),
-              // Form Content
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(24),
@@ -201,7 +199,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // Movie Info Card
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -315,7 +312,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        // Buyer Name Field
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -352,7 +348,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        // Purchase Date Field
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -392,7 +387,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        // Quantity Field
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -431,7 +425,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        // Payment Method
                         Text(
                           'Metode Pembayaran',
                           style: TextStyle(
@@ -544,7 +537,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ],
                         const SizedBox(height: 24),
-                        // Total Price
                         Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
@@ -586,7 +578,6 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        // Submit Button
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),

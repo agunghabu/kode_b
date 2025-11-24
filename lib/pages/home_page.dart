@@ -84,7 +84,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Custom Header
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
@@ -139,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Welcome Back! 👋',
+                              'Selamat Datang! 👋',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.deepPurple.shade300,
@@ -165,8 +164,6 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 const SizedBox(height: 32),
-
-                // Main Feature Card - Browse Movies
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: InkWell(
@@ -202,7 +199,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Stack(
                         children: [
-                          // Background pattern
                           Positioned(
                             right: -30,
                             bottom: -30,
@@ -231,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 const Spacer(),
                                 const Text(
-                                  'Browse Movies',
+                                  'Daftar Film',
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
@@ -243,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                                 Row(
                                   children: [
                                     Text(
-                                      'Book your tickets now',
+                                      'Pesan tiket Anda sekarang',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.white.withOpacity(0.9),
@@ -267,15 +263,13 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 const SizedBox(height: 32),
-
-                // Quick Actions Grid
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Quick Actions',
+                        'Akses Cepat',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -287,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: _buildQuickActionCard(
                               icon: Icons.receipt_long,
-                              title: 'My\nTickets',
+                              title: 'Tiket\nSaya',
                               color1: Colors.orange.shade400,
                               color2: Colors.orange.shade600,
                               onTap: () {
@@ -305,7 +299,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: _buildQuickActionCard(
                               icon: Icons.account_circle_outlined,
-                              title: 'My\nProfile',
+                              title: 'Profil\nSaya',
                               color1: Colors.blue.shade400,
                               color2: Colors.blue.shade600,
                               onTap: _showProfileDialog,
@@ -357,7 +351,6 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Stack(
           children: [
-            // Background pattern icon
             Positioned(
               right: -20,
               bottom: -20,
@@ -422,7 +415,6 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Stack(
           children: [
-            // Background pattern icon
             Positioned(
               right: -15,
               top: -15,
@@ -455,7 +447,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Sign Out',
+                          'Keluar',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -464,7 +456,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: 2),
                         Text(
-                          'Logout from your account',
+                          'Keluar dari akun Anda',
                           style: TextStyle(fontSize: 13, color: Colors.white),
                         ),
                       ],

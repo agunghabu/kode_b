@@ -132,7 +132,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // Custom Header
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -176,7 +175,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                   ],
                 ),
               ),
-              // Form Content
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(24),
@@ -185,7 +183,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // Movie Info Card
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -281,7 +278,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        // Quantity Field
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -319,7 +315,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        // Payment Method
                         Text(
                           'Metode Pembayaran',
                           style: TextStyle(
@@ -432,7 +427,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           ),
                         ],
                         const SizedBox(height: 24),
-                        // Total Price
                         Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
@@ -474,7 +468,6 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        // Action Buttons
                         Row(
                           children: [
                             Expanded(

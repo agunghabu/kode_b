@@ -163,7 +163,6 @@ class _RegisterPageState extends State<RegisterPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // Custom Header
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -207,7 +206,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
               ),
-              // Form Content
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(24),

@@ -71,7 +71,6 @@ class _PurchaseHistoryPageState extends State<PurchaseHistoryPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // Custom Header
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -115,7 +114,6 @@ class _PurchaseHistoryPageState extends State<PurchaseHistoryPage> {
                   ],
                 ),
               ),
-              // Transaction List
               Expanded(
                 child: _isLoading
                     ? const Center(child: CircularProgressIndicator())
