@@ -177,12 +177,7 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                             right: 12,
                             child: Container(
                               decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.deepPurple.shade400,
-                                    Colors.purple.shade600,
-                                  ],
-                                ),
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
@@ -193,9 +188,9 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                                 ],
                               ),
                               child: IconButton(
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.fullscreen,
-                                  color: Colors.white,
+                                  color: Colors.deepPurple.shade400,
                                 ),
                                 onPressed: () {
                                   showDialog(
