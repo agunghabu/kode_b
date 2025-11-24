@@ -125,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 32),
                     Text(
-                      'Halal Cinemas',
+                      "habu's Tickets",
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Login to continue',
+                      'Silahkan masuk untuk melanjutkan',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey.shade600,

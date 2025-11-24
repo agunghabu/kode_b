@@ -1,0 +1,66 @@
+A. Deskripsi Umum
+Mahasiswa diminta untuk merancang dan mengimplementasikan sebuah aplikasi mobile pembelian tiket film di bioskop yang terdiri atas beberapa halaman terintegrasi dengan alur navigasi yang logis. Aplikasi harus dapat melakukan autentikasi pengguna, menampilkan daftar film yang tiketnya dapat dibeli, melakukan proses pembelian, menampilkan riwayat transaksi, serta mengelola detail transaksi yang sudah dilakukan.
+
+Proyek ini menilai kemampuan mahasiswa dalam:
+- Mengelola form input dan validasi,
+- Mendesain tata letak antarmuka (layout dan widget),
+- Mengatur navigasi antar halaman secara konseptual,
+- Mengelola penyimpanan data secara lokal
+
+B. Tujuan Pembelajaran
+Setelah ujian ini, mahasiswa diharapkan mampu:
+1. Menerapkan konsep perancangan antarmuka pengguna yang efisien dan profesional.
+2. Membangun sistem navigasi antar halaman dengan alur yang jelas dan terstruktur.
+3. Mengelola data pengguna dan transaksi secara lokal dengan pendekatan yang terorganisasi
+4. Mengimplementasikan fitur-fitur aplikasi penyewaan mobil secara utuh, dari registrasi hingga pembatalan transaksi.
+
+C. Petunjuk Pengerjaan
+1. Ujian dikerjakan secara individual.
+2. Waktu pengerjaan adalah sampai dengan Senin, 24 November 2025, 23:59 WIB
+3. Aplikasi harus berfungsi penuh sesuai deskripsi fitur.
+4. Desain tampilan bebas.
+5. Project dikumpulkan dalam bentuk link github dengan nama repo utspam_kelas_4nimbelakang_film.
+6. Minimal commit adalah 20.
+
+D. Rincian Halaman dan Fungsionalitas
+Aplikasi minimal terdiri atas enam halaman utama, yang membentuk satu kesatuan sistem pembelian tiket film.
+1. Halaman Registrasi Pengguna
+Halaman ini digunakan oleh pengguna baru untuk membuat akun sebelum dapat menggunakan aplikasi.
+a. Formulir pendaftaran berisi data: Nama Lengkap; Email (format @gmail.com); Alamat; Nomor Telepon; Username; Password
+b. Ketentuan: Semua data wajib diisi; Email harus berformat benar; Nomor telepon harus berupa angka; Password harus memiliki panjang minimal 6 huruf; Setelah registrasi berhasil; data disimpan secara lokal dan pengguna diarahkan ke halaman login; Email dan username harus unik
+2. Halaman Login
+Halaman ini digunakan untuk proses autentikasi pengguna berdasarkan data pendaftaran.
+a. Form Login berisi: Email/Username; Password
+b. Ketentuan: User dapat login menggunakan Email atau Username; Jika data sesuai, pengguna diarahkan ke halaman utama aplikasi. Jika tidak, sistem menampilkan pesan peringatan yang informatif. Pengguna baru dapat kembali ke halaman registrasi melalui tombol atau tautan yang disediakan. Proses berpindah dari login ke halaman utama menggambarkan pergantian konteks halaman yang menutup akses ke halaman sebelumnya agar tidak dapat dikembalikan setelah masuk
+3. Halaman Utama
+Halaman ini merupakan pusat navigasi dari seluruh fitur dalam aplikasi pembelian tiket film
+Halaman ini menampilkan beberapa bagian utama, yaitu:
+a. Header Informasi Pengguna
+Bagian header atas halaman menampilkan nama pengguna yang sedang aktif
+b. Menu Fitur Utama
+Menu Fitur Utama berupa menu utama sebagai berikut: Tampilan Daftar Film; Beli Tiket Film di Waktu tertentu; Riwayat Pembelian tiket; Profil Pengguna; Logout(keluar)
+Ketentuan Logout: Menutup seluruh riwayat halaman sebelumnya dan mengembalikan pengguna ke halaman login. Logout juga bisa menghapus session dari sistem
+4. Tampilan Daftar Film
+Halaman ini juga dapat menampilkan daftar data rekomendasi film yang sedang tayang di
+bioskop yang dapat berbentuk list atau grid.
+a. Data buku terdiri dari: Judul Film; Genre Film; Harga Tiket; Poster Film; Jadwal Tiket pada Film tertentu (harus lebih dari 1)
+b. Ketentuan: Tampilan 1 Film harus menampilkan semua data termasuk tombol jadwal film tersebut; Ketika pengguna menekan tombol salah satu jadwal film tertentu, sistem membuka halaman baru diatas halaman daftar film agar pengguna dapat kembali ke halaman daftar film.; Data Buku berupa data dummy yang harus diinisialisasi dan diakses melalui model
+5. Halaman Formulir Pembelian Tiket Film
+Halaman ini digunakan untuk mengisi detail pembelian berdasarkan jadwal film yang dipilih
+dari halaman utama.
+a. Data yang harus diisi terdiri dari: Menampilkan detail film dan jadwal yang dipilih, termasuk poster; Nama Pembeli (dapat diambil dari user yang aktif); Jumlah pembelian tiket (Quantity); Tanggal Pembelian; Total pembelian tiket; Metode Pembayaran (Cash & Kartu Debit/Kredit); Nomor Kartu Debit/Kredit (hanya muncul dan harus terisi apabila pengguna
+memilih metode pembayaran Kartu Debit/Kredit)
+b. Ketentuan: Semua kolom waiib diisi dan tervalidasi; Lama pinjam harus berupa angka positif; Tanggal mulai pinjam harus menggunakan format tanggal yang benar; Data-data film dan jadwal harus tersimpan dalam pembelian tiket.; Apabila pengguna menggunakan metode pembayaran “Kartu Debit/Kredit”, maka pengguna harus mengisi Nomor Kartu Debit/Kredit.; Nomor Kartu Debit/Kredit harus berisi 16 digit angka; Setelah data valid, aplikasi menghitung total biaya pembelian (harga per tiket x jumlah pembelian). Biaya pembelian harus tampil secara real time di tampilan; Data transaksi disimpan ke penyimpanan lokal dan pengguna diarahkan menuju halaman riwayat sewa. Halaman ini menggambarkan mekanisme penggantian halaman aktif karena pengguna; Tidak perlu kembali ke halaman form setelah transaksi berhasil.
+6. Halaman Riwayat Pembelian Tiket
+Halaman ini menampilkan daftar semua transaksi pembelian yang telah dilakukan.
+a. Data transaksi yang ditampikan: Data-data Film, termasuk poster; Nama Pembeli; Total Biaya Pembelian Tiket
+b. Di halaman ini, pengguna dapat: Melihat daftar transaksi; Memilih salah satu transaksi untuk melihat detail pembelian, halaman detail
+pembelian dibuka tanpa menutup halaman riwayat.; Kembali halaman utama untuk melakukan pembelian baru.
+7. Halaman Detail Pembelian
+Halaman ini menampilam informasi lengkap dalam satu transaksi tertentu, sesuai dengan data yang dipilih pengguna pada halaman riwayat.
+a. Data transaksi yang ditampilkan: Judul Film; Poster Film; Jadwal Film; Nama Pembeli; Jumlah pembelian tiket; Tanggal Beli; Total Biaya; Nomor Kartu Debit/Kredit (jika ada, sensor beberapa digit angka terakhir); Status pembelian (selesai/dibatalkan)
+b. Selain menampilkan informasi terkait transaksi, halaman ini juga menyediakan: Tombol untuk membatalkan transaksi(cancel): Jika dipilih, status penyewaan diganti menjadi dibatalkan dan transaksi dihapus dari penyimpanan lokal dan tidak lagi muncul di riwayat pembelian; Memiliki tombol edit transaksi yang hanya muncul jika pesanan selesai; Tombol edit mengarah ke halaman edit pesanan dan mengirimkan data peminjaman ke halaman edit; Tombol untuk kembali ke riwayat transaksi pembelian: Menutup halaman detail dan memperbarui data histori.
+8. Halaman edit peminjaman
+Halaman ini menampilkan data transaksi yang diedit dari detail penyewaan.
+a. Data yang bisa diedit: Jumlah pembelian; Metode pembayaran (Cash/Kartu); Nomor Kartu Debit/Kredit
+b. Ketentuan: Setelah proses edit selesai maka pengguna akan kembali ke halaman detail peminjaman yang datanya sudah diperbarui; Tombol batal untuk membatalkan proses edit dan mengembalikan pengguna ke halaman detail pembelian.
