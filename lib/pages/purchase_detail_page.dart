@@ -150,25 +150,99 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                     // Movie Image
                     Padding(
                       padding: const EdgeInsets.all(24),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Container(
-                          height: 300,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepPurple.withOpacity(0.2),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(24),
+                            child: Container(
+                              height: 300,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.deepPurple.withOpacity(0.2),
+                                    blurRadius: 20,
+                                    offset: const Offset(0, 10),
+                                  ),
+                                ],
                               ),
-                            ],
+                              child: Image.asset(
+                                'lib/assets/images/${_transaction.movie.id}.jpg',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                              ),
+                            ),
                           ),
-                          child: Image.asset(
-                            'lib/assets/images/${_transaction.movie.id}.jpg',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                          Positioned(
+                            bottom: 12,
+                            right: 12,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Colors.deepPurple.shade400,
+                                    Colors.purple.shade600,
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 12,
+                                    offset: const Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.fullscreen,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => Dialog(
+                                      backgroundColor: Colors.transparent,
+                                      insetPadding: const EdgeInsets.all(0),
+                                      child: Stack(
+                                        children: [
+                                          Center(
+                                            child: InteractiveViewer(
+                                              minScale: 0.5,
+                                              maxScale: 4.0,
+                                              child: Image.asset(
+                                                'lib/assets/images/${_transaction.movie.id}.jpg',
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 40,
+                                            right: 20,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Colors.black54,
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                              ),
+                                              child: IconButton(
+                                                icon: const Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
+                                                ),
+                                                onPressed: () =>
+                                                    Navigator.pop(context),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                     // Details Container
