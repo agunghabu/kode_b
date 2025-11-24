@@ -160,25 +160,6 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.05),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Icon(
-                          Icons.notifications_outlined,
-                          color: Colors.deepPurple.shade400,
-                          size: 24,
-                        ),
-                      ),
                     ],
                   ),
                 ),
