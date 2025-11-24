@@ -70,279 +70,279 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Colors.deepPurple.shade50,
-              Colors.purple.shade50,
-              Colors.grey.shade50,
-            ],
+            colors: [Colors.deepPurple.shade50, Colors.purple.shade50],
           ),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Custom Header
-              Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Colors.deepPurple.shade50,
-                      Colors.purple.shade50,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Custom Header
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Colors.deepPurple.shade50,
+                        Colors.purple.shade50,
+                      ],
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Colors.deepPurple.shade400,
+                              Colors.purple.shade600,
+                            ],
+                          ),
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.deepPurple.withOpacity(0.3),
+                              blurRadius: 12,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Center(
+                          child: Text(
+                            (_currentUser?.fullName ?? 'U')
+                                .substring(0, 1)
+                                .toUpperCase(),
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Welcome Back! 👋',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.deepPurple.shade300,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              _currentUser?.fullName ?? 'User',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepPurple.shade900,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 8,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.notifications_outlined,
+                          color: Colors.deepPurple.shade400,
+                          size: 24,
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
+
+                const SizedBox(height: 32),
+
+                // Main Feature Card - Browse Movies
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MovieListPage(),
+                        ),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(24),
+                    child: Container(
+                      height: 200,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Colors.deepPurple.shade400,
-                            Colors.purple.shade600,
+                            Colors.deepPurple.shade600,
+                            Colors.deepPurple.shade800,
+                            Colors.black87,
                           ],
                         ),
-                        shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.deepPurple.withOpacity(0.3),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
+                            blurRadius: 20,
+                            offset: const Offset(0, 10),
                           ),
                         ],
                       ),
-                      child: Center(
-                        child: Text(
-                          (_currentUser?.fullName ?? 'U').substring(0, 1).toUpperCase(),
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Stack(
                         children: [
-                          Text(
-                            'Welcome Back! 👋',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.deepPurple.shade300,
-                              fontWeight: FontWeight.w600,
+                          // Background pattern
+                          Positioned(
+                            right: -30,
+                            bottom: -30,
+                            child: Icon(
+                              Icons.movie_creation_outlined,
+                              size: 150,
+                              color: Colors.white.withOpacity(0.1),
                             ),
                           ),
-                          const SizedBox(height: 4),
-                          Text(
-                            _currentUser?.fullName ?? 'User',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple.shade900,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 8,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Icon(
-                        Icons.notifications_outlined,
-                        color: Colors.deepPurple.shade400,
-                        size: 24,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 32),
-
-              // Main Feature Card - Browse Movies
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MovieListPage(),
-                      ),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(24),
-                  child: Container(
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.deepPurple.shade600,
-                          Colors.deepPurple.shade800,
-                          Colors.black87,
-                        ],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.deepPurple.withOpacity(0.3),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      children: [
-                        // Background pattern
-                        Positioned(
-                          right: -30,
-                          bottom: -30,
-                          child: Icon(
-                            Icons.movie_creation_outlined,
-                            size: 150,
-                            color: Colors.white.withOpacity(0.1),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(28),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.2),
-                                  borderRadius: BorderRadius.circular(12),
+                          Padding(
+                            padding: const EdgeInsets.all(28),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: const Icon(
+                                    Icons.local_movies,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
                                 ),
-                                child: const Icon(
-                                  Icons.local_movies,
-                                  color: Colors.white,
-                                  size: 28,
+                                const Spacer(),
+                                const Text(
+                                  'Browse Movies',
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    height: 1.2,
+                                  ),
                                 ),
-                              ),
-                              const Spacer(),
-                              const Text(
-                                'Browse Movies',
-                                style: TextStyle(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  height: 1.2,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Book your tickets now',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white.withOpacity(0.9),
+                                const SizedBox(height: 8),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Book your tickets now',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white.withOpacity(0.9),
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Icon(
-                                    Icons.arrow_forward_rounded,
-                                    color: Colors.white.withOpacity(0.9),
-                                    size: 18,
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    const SizedBox(width: 8),
+                                    Icon(
+                                      Icons.arrow_forward_rounded,
+                                      color: Colors.white.withOpacity(0.9),
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 32),
+                const SizedBox(height: 32),
 
-              // Quick Actions Grid
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Quick Actions',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                // Quick Actions Grid
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Quick Actions',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _buildQuickActionCard(
-                            icon: Icons.receipt_long,
-                            title: 'My\nTickets',
-                            color1: Colors.orange.shade400,
-                            color2: Colors.orange.shade600,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const PurchaseHistoryPage(),
-                                ),
-                              );
-                            },
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _buildQuickActionCard(
+                              icon: Icons.receipt_long,
+                              title: 'My\nTickets',
+                              color1: Colors.orange.shade400,
+                              color2: Colors.orange.shade600,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PurchaseHistoryPage(),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: _buildQuickActionCard(
-                            icon: Icons.account_circle_outlined,
-                            title: 'My\nProfile',
-                            color1: Colors.blue.shade400,
-                            color2: Colors.blue.shade600,
-                            onTap: _showProfileDialog,
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: _buildQuickActionCard(
+                              icon: Icons.account_circle_outlined,
+                              title: 'My\nProfile',
+                              color1: Colors.blue.shade400,
+                              color2: Colors.blue.shade600,
+                              onTap: _showProfileDialog,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    _buildLogoutCard(),
-                  ],
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      _buildLogoutCard(),
+                    ],
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 32),
-            ],
+                const SizedBox(height: 32),
+              ],
+            ),
           ),
         ),
-      ),
       ),
     );
   }
