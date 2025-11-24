@@ -438,10 +438,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(height: 2),
                         Text(
                           'Logout from your account',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
-                          ),
+                          style: TextStyle(fontSize: 13, color: Colors.white),
                         ),
                       ],
                     ),
