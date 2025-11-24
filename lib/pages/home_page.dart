@@ -95,11 +95,18 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Colors.deepPurple.shade400, Colors.purple.shade600],
+                          colors: [
+                            Colors.deepPurple.shade400,
+                            Colors.purple.shade600,
+                          ],
                         ),
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: const Icon(Icons.person, color: Colors.white, size: 32),
+                      child: const Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 32,
+                      ),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -130,9 +137,9 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 32),
-              
+
               // Main Feature Card - Browse Movies
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -140,7 +147,9 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const MovieListPage()),
+                      MaterialPageRoute(
+                        builder: (context) => const MovieListPage(),
+                      ),
                     );
                   },
                   borderRadius: BorderRadius.circular(24),
@@ -230,9 +239,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 32),
-              
+
               // Quick Actions Grid
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -259,7 +268,8 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const PurchaseHistoryPage(),
+                                  builder: (context) =>
+                                      const PurchaseHistoryPage(),
                                 ),
                               );
                             },
@@ -282,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 32),
             ],
           ),
@@ -367,7 +377,11 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.red.shade50,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(Icons.logout_rounded, color: Colors.red.shade600, size: 24),
+              child: Icon(
+                Icons.logout_rounded,
+                color: Colors.red.shade600,
+                size: 24,
+              ),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -376,22 +390,20 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const Text(
                     'Sign Out',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Logout from your account',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey.shade600,
-                    ),
+                    style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                   ),
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios, color: Colors.grey.shade400, size: 18),
+            Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.grey.shade400,
+              size: 18,
+            ),
           ],
         ),
       ),
