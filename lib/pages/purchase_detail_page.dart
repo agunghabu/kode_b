@@ -257,7 +257,9 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                               ],
                               const Divider(height: 32),
                               Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 8),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8,
+                                ),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -309,7 +311,8 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
                                             ),
                                             child: Text(
                                               _currencyFormat.format(
-                                                  _transaction.totalPrice),
+                                                _transaction.totalPrice,
+                                              ),
                                               style: const TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -405,11 +408,7 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
               color: Colors.deepPurple.shade50,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(
-              icon,
-              size: 20,
-              color: Colors.deepPurple.shade400,
-            ),
+            child: Icon(icon, size: 20, color: Colors.deepPurple.shade400),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -418,10 +417,7 @@ class _PurchaseDetailPageState extends State<PurchaseDetailPage> {
               children: [
                 Text(
                   label,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade600,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
                 ),
                 const SizedBox(height: 4),
                 Text(
