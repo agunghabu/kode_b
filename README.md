@@ -10,7 +10,7 @@
 
 | Detail Pembelian #1 | Detail Pembelian #2 | Cover (Expanded) |
 |:-------------------:|:-------------------:|:----------------:|
-| ![Detail Pembelian #1](lib/assets/images/screenshots/riwayat%20pembelian.png) | ![Detail Pembelian #2](lib/assets/images/screenshots/riwayat%20pembelian.png) | ![Cover Expanded](lib/assets/images/screenshots/riwayat%20pembelian.png) |
+| ![Detail Pembelian #1](lib/assets/images/screenshots/detail%20pembelian%201.png) | ![Detail Pembelian #2](lib/assets/images/screenshots/detail%20pembelian%202.png) | ![Cover Expanded](lib/assets/images/screenshots/cover%20(expanded).png) |
 
 | Edit Transaksi | Profil Pengguna |
 |:--------------:|:---------------:|
