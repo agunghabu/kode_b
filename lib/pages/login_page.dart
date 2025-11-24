@@ -113,10 +113,12 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'lib/assets/images/me.jpg',
-                          fit: BoxFit.cover,
+                      child: Center(
+                        child: ClipOval(
+                          child: Image.asset(
+                            'lib/assets/images/me.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
