@@ -21,6 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _passwordController = TextEditingController();
 
   bool _isLoading = false;
+  bool _isPasswordVisible = false;
 
   @override
   void dispose() {
@@ -337,7 +338,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ],
                           ),
                           child: TextFormField(
-                            obscureText: true,
+                            obscureText: !_isPasswordVisible,
                             validator: _validatePassword,
                             controller: _passwordController,
                             decoration: InputDecoration(
@@ -352,6 +353,19 @@ class _RegisterPageState extends State<RegisterPage> {
                               prefixIcon: Icon(
                                 Icons.lock,
                                 color: Colors.deepPurple.shade400,
+                              ),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Colors.deepPurple.shade400,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _isPasswordVisible = !_isPasswordVisible;
+                                  });
+                                },
                               ),
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16,

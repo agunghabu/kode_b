@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
+  bool _isPasswordVisible = false;
   final _formKey = GlobalKey<FormState>();
   final _storageService = StorageService();
   final _identifierController = TextEditingController();
@@ -192,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                       child: TextFormField(
-                        obscureText: true,
+                        obscureText: !_isPasswordVisible,
                         validator: _validatePassword,
                         controller: _passwordController,
                         decoration: InputDecoration(
@@ -207,6 +208,19 @@ class _LoginPageState extends State<LoginPage> {
                           prefixIcon: Icon(
                             Icons.lock,
                             color: Colors.deepPurple.shade400,
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _isPasswordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Colors.deepPurple.shade400,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            },
                           ),
                           contentPadding: const EdgeInsets.symmetric(
                             horizontal: 16,
