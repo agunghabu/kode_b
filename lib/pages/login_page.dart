@@ -159,10 +159,8 @@ class _LoginPageState extends State<LoginPage> {
                         validator: _validateIdentifier,
                         controller: _identifierController,
                         decoration: InputDecoration(
-                          labelText: 'Email atau Username',
-                          labelStyle: TextStyle(
-                            color: Colors.deepPurple.shade400,
-                          ),
+                          hintText: 'Email atau Username',
+                          hintStyle: TextStyle(color: Colors.grey.shade400),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide.none,
@@ -172,6 +170,10 @@ class _LoginPageState extends State<LoginPage> {
                           prefixIcon: Icon(
                             Icons.person,
                             color: Colors.deepPurple.shade400,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 16,
                           ),
                         ),
                       ),
@@ -194,10 +196,8 @@ class _LoginPageState extends State<LoginPage> {
                         validator: _validatePassword,
                         controller: _passwordController,
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(
-                            color: Colors.deepPurple.shade400,
-                          ),
+                          hintText: 'Password',
+                          hintStyle: TextStyle(color: Colors.grey.shade400),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide.none,
@@ -207,6 +207,10 @@ class _LoginPageState extends State<LoginPage> {
                           prefixIcon: Icon(
                             Icons.lock,
                             color: Colors.deepPurple.shade400,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 16,
                           ),
                         ),
                       ),
