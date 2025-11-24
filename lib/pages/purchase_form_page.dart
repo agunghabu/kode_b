@@ -155,10 +155,7 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.deepPurple.shade50,
-                      Colors.purple.shade50,
-                    ],
+                    colors: [Colors.deepPurple.shade50, Colors.purple.shade50],
                   ),
                 ),
                 child: Row(
@@ -274,12 +271,14 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                                               Colors.green.shade600,
                                             ],
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
                                         ),
                                         child: Text(
-                                          _currencyFormat
-                                              .format(widget.movie.price),
+                                          _currencyFormat.format(
+                                            widget.movie.price,
+                                          ),
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
@@ -593,7 +592,8 @@ class _PurchaseFormPageState extends State<PurchaseFormPage> {
                             ),
                             child: _isLoading
                                 ? const CircularProgressIndicator(
-                                    color: Colors.white)
+                                    color: Colors.white,
+                                  )
                                 : const Text(
                                     'Konfirmasi Pembelian',
                                     style: TextStyle(
